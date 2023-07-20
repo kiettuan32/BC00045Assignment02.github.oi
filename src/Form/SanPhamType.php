@@ -20,7 +20,9 @@ class SanPhamType extends AbstractType
         $builder
             ->add('name',TextType::class)
             ->add('price',NumberType::class)
-            ->add('photo', FileType::class, 
+            ->add('description',TextType::class)
+            ->add('photo', FileType::class ,
+            
                     array(
                         'label' => 'Photo (png, jpeg)',
                         'data_class' => null,

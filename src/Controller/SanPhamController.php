@@ -24,7 +24,7 @@ class SanPhamController extends AbstractController
     {
     }
     
-    #[Route('/san/pham', name: 'app_san_pham')]
+    #[Route('/themsanpham', name: 'app_san_pham')]
     public function index(EntityManagerInterface $em, Request $req, FileUploader $fileUploader): Response
     {
         $sp = new SanPham();
@@ -47,7 +47,7 @@ class SanPhamController extends AbstractController
             'sp_form' => $form->createView(),
         ]);
     }
-    #[Route('/san/pham/ds', name: 'app_ds_san_pham')]
+    #[Route('/danhsach', name: 'app_ds_san_pham')]
     public function list_sp(EntityManagerInterface $em, Request $req): Response
     {
         $query = $em->createQuery('SELECT sp FROM App\Entity\SanPham sp');
@@ -99,6 +99,17 @@ class SanPhamController extends AbstractController
         $lSp = $cate->getSanPhams();
         return $this->render('san_pham/list.html.twig', [
             "data"=>$lSp
+        ]);
+    }
+    #[Route('/product', name: 'app_product')]
+    public function list_sp1(EntityManagerInterface $em, Request $req): Response
+    {
+        $query = $em->createQuery('SELECT sp FROM App\Entity\SanPham sp');
+        $lSp = $query->getResult();
+        $message = $req->query->get('message');
+        return $this->render('productuser/list.html.twig', [
+            "data"=>$lSp,
+            "message"=>$message
         ]);
     }
     
