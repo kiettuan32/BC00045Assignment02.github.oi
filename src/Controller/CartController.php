@@ -26,6 +26,25 @@ class CartController extends AbstractController
             "cart_manager"=>$cart_manager
         ]);
     }
+    #[Route('/cartuser', name: 'app_cart_user')]
+    public function index1(Request $request): Response
+    {
+        $session = $request->getSession();
+        $cart_manager = $session->get('cart', new CartManager());
+        return $this->render('cart/user.html.twig', [
+            "cart_manager"=>$cart_manager
+        ]);
+    }
+    #[Route('/cart/add/user/{product_id}', name: 'app_cart_add_user', methods: 'post')]
+    public function adduser(int $product_id, Request $request, EntityManagerInterface $em): Response
+    {
+        $product = $em->find(SanPham::class, $product_id);
+        $session = $request->getSession();
+        $cart_manager = $session->get('cart', new CartManager());
+        $cart_manager->addItem($product, 1);
+        $session->set('cart', $cart_manager);
+        return new RedirectResponse($this->urlGenerator->generate('app_cart_user'));
+    }
 
     #[Route('/cart/add/{product_id}', name: 'app_cart_add', methods: 'post')]
     public function add(int $product_id, Request $request, EntityManagerInterface $em): Response
