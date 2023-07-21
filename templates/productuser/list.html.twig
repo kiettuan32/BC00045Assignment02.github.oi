@@ -70,12 +70,12 @@
         <table class="table">
             <thead>
                 <tr>
-                    <td>STT</td>
-                    
-                    <td>Hình ảnh</td>
-                    <td>Tên SP</td>
-                    <td>Giá</td>
-                    <td>Hành động</td>
+                    <td>No</td>
+                    <td>Image</td>
+                    <td>Name Product</td>
+                    <td>Price</td>
+                    <td>Description</td>
+                    <td>Action</td>
                 </tr>
             </thead>
             <tbody>
@@ -86,11 +86,12 @@
                         <td><img src="{{asset('uploads/sanpham/' ~ sp.getPhoto())}}" height="150" /></td>
                         <td>{{sp.getName()}}</td>
                         <td>{{sp.getPrice()}}</td>
+                        <td>{{sp.getDescription()}}</td>
                         <td>
                             
                         
                             <form>
-                            <button type="submit" formmethod="post" formaction="{{path('app_cart_user',{'product_id':sp.getId()})}}">Add to cart</button>
+                            <button type="submit" formmethod="post" formaction="{{path('app_cart_add_user',{'product_id':sp.getId()})}}">Add to cart</button>
                             </form>
                         </td>
                     </tr>

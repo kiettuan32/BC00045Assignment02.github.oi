@@ -5,11 +5,12 @@
 
 {% block body %}
     <div class="container">
+    <a href="{{path('app_home')}}" class='btn btn-danger'>Back</a>
         {{form_start(form)}}
         {{form_widget(form)}}
         {# <input type="submit" value="Submit" class="btn btn-primary" /> #}
         {{form_end(form)}}
-
+      
     <script>
         function showSuccessMessage() {
           var message = "Thông báo đã được gửi thành công!";
