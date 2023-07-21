@@ -5,6 +5,7 @@
 {% block body %}
 <div class="container">
 <form method="post">
+    If you don't hace account please Register <a href="{{ path('app_register') }}" class="nav-item nav-link">Register</a>
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}

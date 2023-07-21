@@ -5,7 +5,7 @@
 
 {% block body %}
 	<div class="container">
-		<a href="{{path('app_product')}}">Add another product</a>
+		<a class="btn btn-primary" href="{{path('app_product')}}">Add another product</a>
 		<table class="table">
 			<tr>
 				<th>STT</th>
@@ -29,7 +29,7 @@
 						</td>
 						<td>{{item.amount}}</td>
 						<td>
-							<a href="{{path('app_cart_remove',{'product_id':item.product.id})}}">Remove</a>
+							<a class="btn btn-danger" href="{{path('app_cart_remove',{'product_id':item.product.id})}}">Remove</a>
 						</td>
 					</form>
 				</tr>
@@ -39,7 +39,7 @@
 				<td>{{cart_manager.amount}}</td>
 			</tr>
 		</table>
-		<a href="{{path('app_order')}}">Check out</a>
+		<a class="btn btn-primary" href="{{path('app_order')}}">Check out</a>
 	</div>
 {% endblock %}
 {% block javascripts %}
