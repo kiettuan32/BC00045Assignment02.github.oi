@@ -55,9 +55,9 @@ class OrderController extends AbstractController
                 $session->set('cart', new CartManager());
             } catch (Exception $e) {
                 $em->getConnection()->rollBack();
-                return new RedirectResponse($this->urlGenerator->generate('app_order',["message"=>"Lỗi! Không thể tạo đơn hàng"]));
+                return new RedirectResponse($this->urlGenerator->generate('app_order',["message"=>"Error! Unable to create order"]));
             }
-            return new RedirectResponse($this->urlGenerator->generate('app_ds_san_pham',["message"=>"Tạo đơn hàng thành công"]));
+            return new RedirectResponse($this->urlGenerator->generate('app_ds_san_pham',["message"=>"Successful order creation"]));
         }
 
         return $this->render('order/index.html.twig', [
