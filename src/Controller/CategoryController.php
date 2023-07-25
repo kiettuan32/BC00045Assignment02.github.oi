@@ -49,7 +49,7 @@ class CategoryController extends AbstractController
            $entityManager->flush(); 
            return $this->redirectToRoute('category_index');
         }
-         return $this->$render $this->render('category/delete.html.twig', [
+         return $this->render('category/delete.html.twig', [
             'category' => $category,
         ]);
     }
