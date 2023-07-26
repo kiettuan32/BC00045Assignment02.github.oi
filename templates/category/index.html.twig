@@ -7,7 +7,7 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Price</th>
             <th></th>
         </tr>
     </thead>
@@ -15,12 +15,19 @@
         {% for category in categories %}
         <tr>
             <td>{{ category.id }}</td>
-            <td>{{ category.name }}</td>
+            <td>{{ category.price }}</td>
             <td>
-                <a href="{{ path('category_edit', {'id': category.id}) }}">Edit</a>
-                <a href="{{ path('category_delete', {'id': category.id}) }}">Delete</a>
+                <a href="{{ path('category_edit', {'id': category.Price}) }}">Edit</a>
+                <a href="{{ path('category_delete', {'id': category.price}) }}">Delete</a>
             </td>
-        </tr>
+             {% for sp in data %}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{sp.getid()}}</td>
+                        <td>{{sp.getPrice()}}</td>
+              
+                    </tr>
+            {% endblock %} 
         {% endfor %}
     </tbody>
 </table>
