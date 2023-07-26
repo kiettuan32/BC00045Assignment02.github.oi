@@ -3,8 +3,10 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Category;
+use Symfony\Component\Routing\Annotation\Route;
 class CategoryController extends AbstractController
 {
+    #[Route('/Category', name: 'app_Category')]
     public function index(Request $request)
     {
         $categories = $this->getDoctrine()
@@ -14,6 +16,7 @@ class CategoryController extends AbstractController
             'categories' => $categories,
         ]);
     }
+    #[Route('/Category', name: 'app_create_Category')]
     public function create(Request $request)
     {
         $category = new Category();
@@ -23,6 +26,7 @@ class CategoryController extends AbstractController
         $entityManager->flush();
         return $this->redirectToRoute('category_index');
     }
+    #[Route('/Category', name: 'app_edit_Category')]
     public function edit(Request $request, $id)
     {
         $category = $this->getDoctrine()
@@ -38,6 +42,7 @@ class CategoryController extends AbstractController
             'category' => $category,
         ]);
     }
+    #[Route('/Category', name: 'app_delete_Category')]
     public function delete(Request $request, $id)
     {
         $category = $this->getDoctrine()

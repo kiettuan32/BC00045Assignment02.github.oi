@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
+
 <h1>Category list</h1>
 <table>
     <thead>
@@ -22,5 +24,5 @@
         {% endfor %}
     </tbody>
 </table>
-<a href="{{ path('category_create') }}">Create a new category</a>
+<a href="{{ path('app_create_Category') }}">Create a new category</a>
 {% endblock %}
