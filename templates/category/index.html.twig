@@ -11,16 +11,23 @@
     </thead>
     <tbody>
         {% for category in categories %}
-        <tr>
-            <td>{{ category.id }}</td>
-            <td>{{ category.name }}</td>
-            <td>
-                <a href="{{ path('category_edit', {'id': category.id}) }}">Edit</a>
-                <a href="{{ path('category_delete', {'id': category.id}) }}">Delete</a>
-            </td>
-        </tr>
+         <tr>
+                        <td>{{loop.index}}</td>
+                        
+                        <td>{{sp.getName()}}</td>
+                        <td>{{sp.getPrice()}}</td>
+                       
+                        <td>
+                            
+                        
+                            <form>
+                            <button type="submit" formmethod="post" formaction="{{path('app_cart_add_user',{'product_id':sp.getId()})}}">Add to cart</button>
+                            </form>
+                        </td>
         {% endfor %}
     </tbody>
 </table>
-<a href="{{ path('app_create_Category') }}">Create a new category</a>
+                {# <a href="{{ path('app_edit_Category', {'id': category.Price}) }}">Edit</a> #}
+
+<a href="{{ path('app_create_Category') }}"  class="btn btn-warning">Create a new category</a>
 {% endblock %}
