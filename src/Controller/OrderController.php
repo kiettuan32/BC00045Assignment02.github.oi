@@ -57,9 +57,8 @@ class OrderController extends AbstractController
                 $em->getConnection()->rollBack();
                 return new RedirectResponse($this->urlGenerator->generate('app_order',["message"=>"Error! Unable to create order"]));
             }
-            return new RedirectResponse($this->urlGenerator->generate('app_ds_san_pham',["message"=>"Successful order creation"]));
+            return new RedirectResponse($this->urlGenerator->generate('app_product',["message"=>"Successful order creation"]));
         }
-
         return $this->render('order/index.html.twig', [
             'order_form' => $form->createView(),
             'cart_manager' => $cart_manager,
