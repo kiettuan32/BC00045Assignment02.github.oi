@@ -4,7 +4,10 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\SanPham;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ProductController extends AbstractController
 {
@@ -16,10 +19,13 @@ class ProductController extends AbstractController
         ]);
     }
     #[Route('/productdetail', name: 'app_product_detail')]
-    public function productdetail(): Response
+    public function productdetail(Request $req, EntityManagerInterface $em): Response
     {
+        $id = $req->query->get('product_id');
+        $sp = $em->find(SanPham::class, $id);
+        
         return $this->render('product/detail.html.twig', [
-            'controller_name' => 'ProductController',
+            'data' => $sp,
         ]);
     }
     

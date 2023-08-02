@@ -74,7 +74,7 @@
                     <td>Image</td>
                     <td>Name Product</td>
                     <td>Price</td>
-                    <td>Description</td>
+                    
                     <td>Action</td>
                 </tr>
             </thead>
@@ -86,12 +86,12 @@
                         <td><img src="{{asset('uploads/sanpham/' ~ sp.getPhoto())}}" height="150" /></td>
                         <td>{{sp.getName()}}</td>
                         <td>{{sp.getPrice()}}</td>
-                        <td>{{sp.getDescription()}}</td>
+                       
                         <td>
                             
                         
                             <form>
-                            <button type="submit" formmethod="post" formaction="{{path('app_cart_add_user',{'product_id':sp.getId()})}}">Add to cart</button>
+
                             <button type="submit" formmethod="post" formaction="{{path('app_product_detail',{'product_id':sp.getId()})}}">Product Detail</button>
                             </form>
                         </td>

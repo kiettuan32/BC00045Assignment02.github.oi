@@ -8,7 +8,7 @@
      <div class="container-fluid pt-5">
         <div class="container">
             <div class="section-title">
-                <h4 class="display-4" style="letter-spacing: 5px;">PRODUCT</h4>
+                <h4 class="display-4" style="letter-spacing: 5px;">PRODUCT DETAILS</h4>
                 <h1 class="text-primary text-uppercase">Existing products</h1>
                  </div> 
     <div class="container">
@@ -16,7 +16,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <td>No</td>
+                    
                     <td>Image</td>
                     <td>Name Product</td>
                     <td>Price</td>
@@ -25,24 +25,24 @@
                 </tr>
             </thead>
             <tbody>
-                {% for sp in data %}
+               
                     <tr>
-                        <td>{{loop.index}}</td>
                         
-                        <td><img src="{{asset('uploads/sanpham/' ~ sp.getPhoto())}}" height="150" /></td>
-                        <td>{{sp.getName()}}</td>
-                        <td>{{sp.getPrice()}}</td>
-                        <td>{{sp.getDescription()}}</td>
+                        
+                        <td><img src="{{asset('uploads/sanpham/' ~ data.getPhoto())}}" height="150" /></td>
+                        <td>{{data.getName()}}</td>
+                        <td>{{data.getPrice()}}</td>
+                        <td>{{data.getDescription()}}</td>
                         <td>
                             
                         
                             <form>
-                            <button type="submit" formmethod="post" formaction="{{path('app_cart_add_user',{'product_id':sp.getId()})}}">Add to cart</button>
+                            <button type="submit" formmethod="post" formaction="{{path('app_cart_add_user',{'product_id':data.getId()})}}">Add to cart</button>
                             
                             </form>
                         </td>
                     </tr>
-                {% endfor %}
+                
             </tbody>
         </table>
     </div> 
