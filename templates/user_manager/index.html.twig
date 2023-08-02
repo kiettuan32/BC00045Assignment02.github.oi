@@ -1,20 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserManagerController!{% endblock %}
+{% block title %}User Manager{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container">
+        <a href="{{path('app_user_manager_add')}}" class='btn btn-primary'>Add</a>
+        <a href="{{path('app_logout')}}" class='btn btn-danger'>Logout</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>STT</td>
+                    <td>Username</td>
+                    <td>Fullname</td>
+                    <td>Hành động</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in data %}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{u.getUsername()}}</td>
+                        <td>{{u.getFirstName()}} {{u.getLastName()}}</td>
+                        <td>
+                            <a href="#" class="btn btn-warning">Edit</a>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        function deletesp(url){
+            if(confirm("Do you delete product?")){
+                window.location.href = url;
+            }
+        }
+    </script>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Store/Store/src/Controller/UserManagerController.php'|file_link(0) }}">src/Controller/UserManagerController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Store/Store/templates/user_manager/index.html.twig'|file_link(0) }}">templates/user_manager/index.html.twig</a></code></li>
-    </ul>
-</div>
 {% endblock %}
