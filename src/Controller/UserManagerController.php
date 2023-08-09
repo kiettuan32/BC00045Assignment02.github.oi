@@ -43,7 +43,7 @@ class UserManagerController extends AbstractController
                     $form->get('password')->getData()
                 )
             );
-            $u->setRoles(["ROLE_ADMIN"]);
+            $u->setRoles(["ROLE_USER"]);
             $em->persist($u);
             $em->flush();
             return new RedirectResponse($this->ug->generate('app_user_manager'));

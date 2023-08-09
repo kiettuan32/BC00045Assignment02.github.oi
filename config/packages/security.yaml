@@ -35,8 +35,8 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: '^/order', roles: ROLE_USER }
-        - { path: '^/user/manager', roles: ROLE_USER }
-        - { path: '^/user/manager/add', roles: ROLE_ADMIN }
+        # - { path: '^/user/manager', roles: ROLE_USER }
+        # - { path: '^/user/manager/add', roles: ROLE_ADMIN }
 
 when@test:
     security:
