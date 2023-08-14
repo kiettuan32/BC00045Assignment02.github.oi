@@ -10,22 +10,19 @@
         </tr>
     </thead>
     <tbody>
-        {% for category in categories %}
-         <tr>
-                        <td>{{loop.index}}</td>
-                        <td>{{u.getUsername()}}</td>
-                        <td>{{u.getFirstName()}} {{u.getLastName()}}</td>
-                        <td>
-                            <a href="#" class="btn btn-warning">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
+        
+                    <tr>
+                         <td><img src="{{asset('uploads/sanpham/' ~ data.getPhoto())}}" height="150" /></td>
+                        <td>{{data.getPrice()}}</td>
+                        
                     </tr>
                         
                             <form>
-                            <button type="submit" formmethod="post" formaction="{{path('app_cart_add_user',{'product_id':sp.getId()})}}">Add to cart</button>
+                             <a href="#" class="btn btn-warning">Edit</a>
+                            {# <a href="#" class="btn btn-danger">Delete</a> #}
                             </form>
                         </td>
-        {% endfor %}
+      
     </tbody>
 </table>
                 {# <a href="{{ path('app_edit_Category', {'id': category.Price}) }}">Edit</a> #}

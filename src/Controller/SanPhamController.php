@@ -47,7 +47,7 @@ class SanPhamController extends AbstractController
             'sp_form' => $form->createView(),
         ]);
     }
-    #[Route('/danhsach', name: 'app_ds_san_pham')]
+    #[Route('/listproduct', name: 'app_ds_san_pham')]
     public function list_sp(EntityManagerInterface $em, Request $req): Response
     {
         $query = $em->createQuery('SELECT sp FROM App\Entity\SanPham sp');
